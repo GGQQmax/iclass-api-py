@@ -22,6 +22,8 @@ class TronClassFilesAPI:
 
         if downloads_dir is None:
             downloads_dir = Path.home() / 'Downloads'
+        else:
+            downloads_dir = Path(downloads_dir)
 
         os.makedirs(downloads_dir, exist_ok=True)  # Create if it doesn't exist
 
