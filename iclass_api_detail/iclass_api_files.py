@@ -33,14 +33,14 @@ class TronClassFilesAPI:
                     f.write(chunk)
         return str(file_path)
 
-    async def download(self, reference_id):
+    async def download(self, reference_id, downloads_dir=None):
         url = f"https://iclass.tku.edu.tw/api/uploads/reference/{reference_id}/blob"
-        file_path = await self.fileDownloader(url)
+        file_path = await self.fileDownloader(url, downloads_dir=downloads_dir)
         return file_path
     
-    async def myfiledownload(self, file_id):
+    async def myfiledownload(self, file_id, downloads_dir=None):
         url = f"https://iclass.tku.edu.tw/api/uploads/{file_id}/blob"
-        file_path = await self.fileDownloader(url)
+        file_path = await self.fileDownloader(url, downloads_dir=downloads_dir)
         return file_path
 
     async def upload_file(self,file_path:str):

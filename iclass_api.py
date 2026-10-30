@@ -36,11 +36,11 @@ class TronClassAPI:
         self.course_api = TronClassCourseAPI(self.session)
         return await self.course_api.get_bulletins(org_mode,start_date,end_date,page,size,course_ids)
     
-    async def download(self, reference_id):
-        return await self.files_api.download(reference_id)
+    async def download(self, reference_id, downloads_dir=None):
+        return await self.files_api.download(reference_id, downloads_dir=downloads_dir)
 
-    async def myfiledownload(self, file_id):
-        return await self.files_api.myfiledownload(file_id)
+    async def myfiledownload(self, file_id, downloads_dir=None):
+        return await self.files_api.myfiledownload(file_id, downloads_dir=downloads_dir)
 
     async def get_courses(self):
         self.course_api = TronClassCourseAPI(self.session)
