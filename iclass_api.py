@@ -47,7 +47,7 @@ class TronClassAPI:
         return await self.course_api.get_courses()
 
     async def get_courses_score(self,course_id):
-        self.course_api.get_courses_score(course_id)
+        return await self.course_api.get_courses_score(course_id)
 
     async def get_enrollments(self,course_id,data:dict=None):
         self.course_api = TronClassCourseAPI(self.session)
