@@ -90,6 +90,15 @@ class TronClassCourseAPI:
         except requests.exceptions.RequestException as e:
             return {"error": f"Error fetching todos: {str(e)}"}
 
+    async def get_courses_score(self,course_id):
+        courses_score_url = f'https://iclass.tku.edu.tw/api/course/{course_id}/student-self-score'
+        try:
+            response = self.session.get(courses_score_url)
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            return {"error": f"Error fetching todos: {str(e)}"}
+
     async def create_syllabus(
         self,
         module_id: Union[int, str] = None,
